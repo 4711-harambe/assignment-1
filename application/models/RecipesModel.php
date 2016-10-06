@@ -24,6 +24,7 @@ class Recipes extends CI_Model {
                 'description' => 'Just you and the fellas.',
                 'ingredients' => 
                     array('ingredient' => 'deck of cards', amount => 1),
+                    array('ingredient' => 'poker chips', amount => 1),
                     array('ingredient' => 'cigars', 'amount' => 5),
                     array('ingredient' => 'chips', 'amount' => 3)),
             array('code' => 'Date Night',
