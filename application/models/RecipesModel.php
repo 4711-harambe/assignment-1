@@ -1,7 +1,7 @@
 <?php
 
-class Recipes extends CI_Model {
-        
+class RecipesModel extends CI_Model {
+
         // Recipe information hard-coded to avoid implementing database.
 	var $data = array(
             array('code' => 'Breakfast', 
@@ -51,7 +51,7 @@ class Recipes extends CI_Model {
 	{
 		return $this->data;
 	}
-        
+
         // Retrieve a single recipe.
         public function singleRecipe($recipeCode) {
             foreach ($this->data as $recipe) {
@@ -59,7 +59,7 @@ class Recipes extends CI_Model {
                     return $recipe;
                 }
             }
-            
+
             return null;
         }
 }
