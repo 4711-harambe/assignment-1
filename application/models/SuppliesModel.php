@@ -114,7 +114,7 @@ class SuppliesModel extends CI_Model {
 	}
         
         // Retrieve a single recipe.
-        public function singleRecipe($supplyCode) {
+        public function singleSupply($supplyCode) {
             foreach ($this->data as $supply) {
                 if ($supply['code'] == $supplyCode) {
                     return $supply;

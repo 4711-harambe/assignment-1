@@ -41,7 +41,7 @@ class StockModel extends CI_Model {
 	}
         
         // Retrieve stock information on specific item.
-        public function singleRecipe($itemCode) {
+        public function singleStock($itemCode) {
             foreach ($this->data as $stock) {
                 if ($stock['code'] == $itemCode) {
                     return $stock;
