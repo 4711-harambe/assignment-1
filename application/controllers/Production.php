@@ -20,7 +20,12 @@ class Production extends CI_Controller {
 	 */
 	public function index()
 	{
-		echo 'hello';
-		//$this->load->view('welcome_message');
+		$this->getRecipes();
+		$this->load->view('production_view');
+	}
+
+	public function getRecipes() {
+		$this->load->model('recipesModel');
+		$receipes = $this->recipesModel->all();
 	}
 }
