@@ -6,14 +6,14 @@ class TransactionLogs extends CI_Model {
 	var $data = array(
             array('spentPurchasing' => 10000, 
                 'earnedSales' => 17500, 
-                'ingredientsConsumed' => 
+                'ingredientsConsumed' => array(
                     array('code' => 'deck of cards', 'amount' => 4, 'value' => 4),
                     array('code' => 'poker chips', 'amount' => 4, 'value' => 200),
                     array('code' => 'chips', 'amount' => 6, 'value' => 42),
                     array('code' => 'cigars', 'amount' => 20, 'value' => 300),
                     array('code' => 'Netflix subscription', 'amount' => 3, 'value' => 29.97),
                     array('code' => 'candles', 'amount' => 12, 'value' => 60),
-                    array('code' => 'wine', 'amount' => 6, 'value' => 90)));
+                    array('code' => 'wine', 'amount' => 6, 'value' => 90))));
 
 	// Constructor
 	public function __construct()
