@@ -71,6 +71,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<h1>Welcome fo the Production Page</h1>
 
 	<div id="body">
+		<?php foreach ($recipes as $recipe) { ?>
+		<div>
+			<?php
+				echo "<h2>" . $recipe['code'] . "</h2><br>";
+				echo $recipe['description'] . "<br>";
+				echo "Ingredients: <br>";
+				foreach ($recipe['ingredients'] as $ingredient) {
+					echo $ingredient['ingredient'] . ", Needed:" . $ingredient['amount'] . ", Amount In Stock: " . $ingredient['amt_in_stock'] . "<br>";
+				}
+				$can_produce = ($recipe['can_produce'] ? "TRUE" : "FALSE");
+				echo "Enough Supplies to Produce: " . $can_produce;
+				echo "<br>";
+			 ?>
+		</div>
+		<?php } ?>
 	</div>
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
