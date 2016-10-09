@@ -62,4 +62,18 @@ class RecipesModel extends CI_Model {
 
             return null;
         }
+        
+        // Add a recipe to the data.
+        public function addRecipe($recipe) {
+            array_push($this->data, $recipe);
+        }
+        
+        // Delete a recipe item from the data.
+        public function deleteRecipe($code) {
+            foreach ($this->data as $recipe) {
+                if ($recipe['code'] == $code) {
+                    unset($this->data[$code]);
+                }
+            }
+        }
 }
