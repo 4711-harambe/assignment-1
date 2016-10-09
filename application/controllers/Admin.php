@@ -20,8 +20,8 @@ class Admin extends Application {
                 $this->data['stock'] = $stock;
                 $this->data['supplies'] = $supplies;
                 
-		$this->data['pagetitle'] = "Production Page";
-		$this->data['pagebody'] = 'production_view';
+		$this->data['pagetitle'] = "Administrative page";
+		$this->data['pagebody'] = 'admin_view';
                 
 		$this->render();
 	}
@@ -29,14 +29,13 @@ class Admin extends Application {
         // Get the recipe data for the view.
 	public function getRecipeViewData() {
             $recipes = $this->recipesModel->all();
-            $recipe['prod_link'] = str_replace(' ', '_', $recipe['code']);
+            
             return $recipes;
 	}
         
         //Get the stock data for the view.
         public function getStockViewData() {
             $stock = $this->stockModel->all();
-            $stock['prod_link'] = str_replace(' ', '_', $stock['code']);
             
             return $stock;
         }
@@ -44,7 +43,6 @@ class Admin extends Application {
         // Get the supplies data for the view.
         public function getSuppliesViewData() {
             $supplies = $this->suppliesModel->all();
-            $supplies['prod_link'] = str_replace(' ', '_', $supplies['code']);
             
             return $supplies;
         }
