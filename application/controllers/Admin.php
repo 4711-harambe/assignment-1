@@ -28,19 +28,9 @@ class Admin extends Application {
         
         // Get the recipe data for the view.
 	public function getRecipeViewData() {
-		$recipes = $this->getRecipes();
-		foreach ($recipes as &$recipe) {
-			$can_produce = TRUE;
-			foreach ($recipe['ingredients'] as &$ingredient) {
-				$ingredient['amt_in_stock'] = $this->getSupplyCount($ingredient['ingredient']);
-				if ($ingredient['amt_in_stock'] < $ingredient['amount']) {
-					$can_produce = FALSE;
-				}
-			}
-			$recipe['can_produce'] = $can_produce;
-			$recipe['prod_link'] = str_replace(' ', '_', $recipe['code']);
-		}
-		return $recipes;
+            $recipes = $this->recipesModel->all();
+            $recipe['prod_link'] = str_replace(' ', '_', $recipe['code']);
+            return $recipes;
 	}
         
         //Get the stock data for the view.
