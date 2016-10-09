@@ -20,7 +20,7 @@ body {
 .image-bg-fluid-height {
 	background: url('http://wallpapersdsc.net/wp-content/uploads/2016/09/Food-Computer-Wallpaper.jpg') no-repeat center center scroll;
     padding: 100px 0;
-    height:200px;
+    height:400px;
 }
 
 .img-center {
@@ -42,10 +42,6 @@ section {
 
 .section-paragraph {
     margin: 30px 0;
-}
-
-footer {
-    margin: 50px 0;
 }
 
 @media(max-width:768px) {

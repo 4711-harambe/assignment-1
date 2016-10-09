@@ -1,10 +1,6 @@
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <p>Copyright &copy; Harambe 2016</p>
-            </div>
-        </div>
-        <!-- /.row -->
-    </div>
-    <!-- /.container -->
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">Copyright &copy; Harambe 2016</p>
+      </div>
+    </footer>
