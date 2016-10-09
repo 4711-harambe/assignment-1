@@ -23,7 +23,7 @@
         {
 
             $this->data['pagebody'] = 'receiving/receiving_view';
-            $this->data['pagetitle'] = 'Recipes';
+            $this->data['pagetitle'] = 'Receiving Page';
             $supplies = $this->suppliesmodel->all();
 
             $supplyList = array();

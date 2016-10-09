@@ -16,6 +16,7 @@ class Production extends Application {
 	{
 		$recipes = $this->getViewData();
 		$this->data['recipes'] = $recipes;
+		$this->data['pagetitle'] = "Production Page";
 		$this->data['pagebody'] = 'production_view';
 		$this->render();
 		//$this->load->view('production_view', $this->data);
