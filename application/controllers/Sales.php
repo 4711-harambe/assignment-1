@@ -14,7 +14,7 @@ class Sales extends Application {
                 $this->data['pagebody'] = 'sales_view';
 		//$sales = $this->getViewData();
 		//$this->data['sales'] = $sales;
-                
+
                 $this->render();
 	}
 
