@@ -32,9 +32,11 @@
             
             $moneySpent = $this->LogModel->RetrieveMoneySpentPurchasing();
             $moneyEarned = $this->LogModel->RetrieveMoneyEarnedSales();
+            $costOfConsumed = $this->LogModel->RetrieveCostofConsumed();
             
             $this->data['moneySpent'] = $moneySpent;
             $this->data['moneyEarned'] = $moneyEarned;
+            $this->data['consumedCost'] = $costOfConsumed;
 
             $this->render();
         }

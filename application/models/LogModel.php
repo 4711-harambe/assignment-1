@@ -102,4 +102,16 @@ class LogModel extends CI_Model {
             
             return $consumedvalue;
         }
+        
+        public function RetrieveCostofConsumed(){
+            $consumedvalue = 0;
+            
+            foreach($this->data as $log){
+                foreach ($log['ingredientsConsumed'] as $consumedLog){
+                    $consumedvalue += $consumedLog['value'];
+                }
+            }
+            
+            return $consumedvalue;
+        }
 }
