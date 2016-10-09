@@ -23,6 +23,7 @@ class Sales extends Application {
                         'code' => $item['code'],
                         'description' => $item['description'],
                         'sellingPrice' => $item['sellingPrice'],
+						'link' => str_replace(' ', '_', $item['code']),
                         'quantityOnHand' => $item['quantityOnHand']);
                 }
                 $this->data['stock'] = $stockList;
@@ -32,9 +33,10 @@ class Sales extends Application {
 
         public function showDetails($code)
         {
+			$normalCode = str_replace('_', ' ', $code);
             $this->data['pagebody'] = 'sales/item_view';
-            $stock = $this->stockmodel->singleStock($code);
-            $recipe = $this->recipesmodel->singleRecipe($code);
+            $stock = $this->stockmodel->singleStock($normalCode);
+            $recipe = $this->recipesmodel->singleRecipe($normalCode);
             $this->data['pagetitle'] = $stock['code'];
 
             $this->data['code'] = $stock['code'];
