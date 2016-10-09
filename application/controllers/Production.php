@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Production extends CI_Controller {
+class Production extends Application {
 
 	public function __construct() {
 		parent::__construct();
@@ -15,7 +15,9 @@ class Production extends CI_Controller {
 	{
 		$recipes = $this->getViewData();
 		$this->data['recipes'] = $recipes;
-		$this->load->view('production_view', $this->data);
+		$this->data['pagebody'] = 'production_view';
+		$this->render();
+		//$this->load->view('production_view', $this->data);
 	}
 
 	public function getViewData() {
@@ -29,6 +31,7 @@ class Production extends CI_Controller {
 				}
 			}
 			$recipe['can_produce'] = $can_produce;
+			$recipe['prod_link'] = str_replace(' ', '_', strtolower($recipe['code']));
 		}
 		return $recipes;
 	}
