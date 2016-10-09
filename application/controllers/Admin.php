@@ -87,25 +87,25 @@ class Admin extends Application {
     }
 
     // Add a recipe to the data model.
-    public function addRecipe($recipe) {
-        $this->recipesModel->addRecipe($recipe);
-        $normalCode = str_replace('_', ' ', $recipe['code']);
+    public function addRecipe($recipeCode) {
+        //$this->recipesModel->addRecipe($recipe);
+        $normalCode = str_replace('_', ' ', $recipeCode);
         $this->phpAlert("Created new recipe: " . $normalCode);
         redirect('/admin', 'refresh');
     }
 
     // Add a stock item to the stock model.
-    public function addStock($stock) {
-        $this->stockModel->addStock($stock);
-        $normalCode = str_replace('_', ' ', $stock['code']);
+    public function addStock($stockCode) {
+        //$this->stockModel->addStock($stock);
+        $normalCode = str_replace('_', ' ', $stockCode);
         $this->phpAlert("Created new stock item: " . $normalCode);
         redirect('/admin', 'refresh');
     }
 
     // Add a supply item to the supply model.
-    public function addSupply($supply) {
-        $this->suppliesModel->addSupply($supply);
-        $normalCode = str_replace('_', ' ', $supply['code']);
+    public function addSupply($supplyCode) {
+        //$this->suppliesModel->addSupply($supply);
+        $normalCode = str_replace('_', ' ', $supplyCode);
         $this->phpAlert("Created new supply item: " . $normalCode);
         redirect('/admin', 'refresh');
     }
