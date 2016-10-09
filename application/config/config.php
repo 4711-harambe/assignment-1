@@ -1,6 +1,17 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// Loads navbar content; add or remove items here to change the navbar
+$config['menu_choices'] = array(
+    'menudata' => array(
+        array('name' => 'Home', 'link' => '/home'),
+        array('name' => 'Production', 'link' => '/production'),
+        array('name' => 'Sales', 'link' => '/sales'),
+        array('name' => 'Receiving', 'link' => '/receiving'),
+        array('name' => 'Admin', 'link' => '/admin'),
+        )
+    );
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -23,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = '';
+$config['base_url'] = '/';
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +46,7 @@ $config['base_url'] = '';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
