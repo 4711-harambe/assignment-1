@@ -24,7 +24,6 @@
 
             $this->data['pagebody'] = 'receiving/receiving_view';
             $this->data['pagetitle'] = 'Recipes';
-            $this->load->model('suppliesmodel');
             $supplies = $this->suppliesmodel->all();
 
             $supplyList = array();
@@ -45,7 +44,6 @@
 
         public function showDetails($id)
         {
-            $this->load->model('suppliesmodel');
             $supplies= $this->suppliesmodel->details($id);
             $this->data['pagebody'] = 'receiving/details_view';
             $this->data['pagetitle'] = $supplies['code'];
