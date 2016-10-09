@@ -9,7 +9,7 @@ class Admin extends Application {
 		$this->load->model('suppliesModel');
 		$this->load->model('stockModel');
 	}
-        
+
 	//Index Page for the Admin controller.
 	public function index()
 	{
@@ -19,36 +19,42 @@ class Admin extends Application {
 		$this->data['recipes'] = $recipes;
                 $this->data['stock'] = $stock;
                 $this->data['supplies'] = $supplies;
-                
+
 		$this->data['pagetitle'] = "Production Page";
 		$this->data['pagebody'] = 'production_view';
-                
+
 		$this->render();
 	}
-        
+
         // Get the recipe data for the view.
 	public function getRecipeViewData() {
             $recipes = $this->recipesModel->all();
-            $recipe['prod_link'] = str_replace(' ', '_', $recipe['code']);
+			foreach ($recipes as &$recipe) {
+	            $recipe['prod_link'] = str_replace(' ', '_', $recipe['code']);
+			}
             return $recipes;
 	}
-        
+
         //Get the stock data for the view.
         public function getStockViewData() {
-            $stock = $this->stockModel->all();
-            $stock['prod_link'] = str_replace(' ', '_', $stock['code']);
-            
+            $stocks = $this->stockModel->all();
+			foreach ($stocks as &$stock) {
+	            $stock['prod_link'] = str_replace(' ', '_', $stock['code']);
+			}
+
             return $stock;
         }
-        
+
         // Get the supplies data for the view.
         public function getSuppliesViewData() {
             $supplies = $this->suppliesModel->all();
-            $supplies['prod_link'] = str_replace(' ', '_', $supplies['code']);
-            
+			foreach ($supplies as &$supply) {
+	            $supply['prod_link'] = str_replace(' ', '_', $supply['code']);
+			}
+
             return $supplies;
         }
-        
+
         // Add a recipe to the data model.
         public function addRecipe($recipe) {
             $this->recipesModel->addRecipe($recipe);
@@ -56,7 +62,7 @@ class Admin extends Application {
             $this->phpAlert("Created new recipe: " . $normalCode);
 		redirect('/admin', 'refresh');
         }
-        
+
         // Add a stock item to the stock model.
         public function addStock($stock) {
             $this->stockModel->addStock($stock);
@@ -64,7 +70,7 @@ class Admin extends Application {
             $this->phpAlert("Created new stock item: " . $normalCode);
 		redirect('/admin', 'refresh');
         }
-        
+
         // Add a supply item to the supply model.
         public function addSupply($supply) {
             $this->suppliesModel->addSupply($supply);
@@ -72,28 +78,28 @@ class Admin extends Application {
             $this->phpAlert("Created new supply item: " . $normalCode);
 		redirect('/admin', 'refresh');
         }
-        
+
         // Edit a recipe data model item.
         public function editRecipe($recipe) {
             $normalCode = str_replace('_', ' ',$recipe['code']);
             $this->phpAlert("Recipe: " . $normalCode . " has been updated.");
 		redirect('/admin', 'refresh');
         }
-        
+
         // Edit a stock data model item.
         public function editStock($stock) {
             $normalCode = str_replace('_', ' ', $stock['code']);
             $this->phpAlert("Stock item: " . $normalCode . " has been updated.");
 		redirect('/admin', 'refresh');
         }
-        
+
         // Edit a supply data model item.
         public function editSupply($supply) {
             $normalCode = str_replace('_', ' ', $supply['code']);
             $this->phpAlert("Supply item: " . $normalCode . " has been updated.");
 		redirect('/admin', 'refresh');
         }
-        
+
         // Delete Recipe from data model.
         public function deleteRecipe($code) {
             $normalCode = str_replace('_', ' ', $code);
@@ -101,7 +107,7 @@ class Admin extends Application {
             $this->phpAlert("Deleted recipe: " . $normalCode);
 		redirect('/admin', 'refresh');
         }
-        
+
         // Delete stock item from data model.
         public function deleteStock($code) {
             $normalCode = str_replace('_', ' ', $code);
@@ -109,7 +115,7 @@ class Admin extends Application {
             $this->phpAlert("Deleted stock item: " . $normalCode);
 		redirect('/admin', 'refresh');
         }
-        
+
         // Delete supply item from data model.
         public function deleteSupply($code) {
             $normalCode = str_replace('_', ' ', $code);
