@@ -1,3 +1,4 @@
+<h2>Production</h2>
 <table class='table'>
 	<thead>
 		<tr>
@@ -25,7 +26,7 @@
 
 			$can_produce = ($recipe['can_produce'] ? "Yes" : "No");
 			echo "<td>$can_produce</td>";
-			
+
 			if ($recipe['can_produce']) {
 				echo "<td><a type='button' class='btn btn-primary' href='/production/create/" . $recipe['prod_link'] . "'>Create</a></td>";
 			} else {
