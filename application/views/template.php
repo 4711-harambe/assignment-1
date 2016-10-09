@@ -15,22 +15,22 @@
 	</head>
 	<body>
 
+		<h1>COMP 4711 - Assignement 1</h1>
+        <!-- Loads the navbar -->
+        <div class="navbar">
+               {menubar}
+        </div>
 
-            <!-- Loads the navbar -->
-            <div class="navbar">
-                   {menubar}
-            </div>
 
-						<!-- Header image -->
-						{header}
+        <!-- Loads the page content -->
+        <div id="container">
+					<!-- Header image -->
+					{header}
+            {content}
+        </div>
 
-            <!-- Loads the page content -->
-            <div id="container">
-                {content}
-            </div>
-
-						<footer>
-							{footer}
-						</footer>
+					<footer>
+						{footer}
+					</footer>
 	</body>
 </html>
