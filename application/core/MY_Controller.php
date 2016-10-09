@@ -34,6 +34,8 @@ class Application extends CI_Controller
 	{
                 $this->data['menubar'] = $this->parser->parse('_menubar', $this->config->item('menu_choices'),true);
 		$this->data['content'] = $this->parser->parse($this->data['pagebody'], $this->data, true);
+		$this->data['header'] = $this->parser->parse('_header', $this->data, true);
+		$this->data['footer'] = $this->parser->parse('_footer', $this->data, true);
 		$this->parser->parse('template', $this->data);
 	}
 

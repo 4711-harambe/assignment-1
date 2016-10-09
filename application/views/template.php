@@ -2,24 +2,35 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>{title}</title>
+		<title>{pagetitle}</title>
                 <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+								<!-- Bootstrap CSS -->
                 <link href="/assets/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
+
+								<!-- Custom CSS -->
+								<link href="/assets/css/full-width-pics.css" rel="stylesheet">
                 <link rel="stylesheet" type="text/css" href="/assets/css/style.css"/>
 	</head>
 	<body>
+
+
             <!-- Loads the navbar -->
             <div class="navbar">
-                <div class="navbar-inner">
-                   {menubar} 
-                </div>
-            </div> 
-            <!-- Loads the page content --> 
+                   {menubar}
+            </div>
+
+						<!-- Header image -->
+						{header}
+
+            <!-- Loads the page content -->
             <div id="container">
                 {content}
-                <p class="footer">Page rendered in <strong>{elapsed_time}</strong> 
-                    seconds. {ci_version}</p>
             </div>
+
+						<footer>
+							{footer}
+						</footer>
 	</body>
 </html>
