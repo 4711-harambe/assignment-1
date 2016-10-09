@@ -7,6 +7,7 @@ class Production extends Application {
 		parent::__construct();
 		$this->load->model('recipesModel');
 		$this->load->model('suppliesModel');
+		$this->load->model('stockModel');
 	}
 	/**
 	 * Index Page for the Production controller.
@@ -31,7 +32,7 @@ class Production extends Application {
 				}
 			}
 			$recipe['can_produce'] = $can_produce;
-			$recipe['prod_link'] = str_replace(' ', '_', strtolower($recipe['code']));
+			$recipe['prod_link'] = str_replace(' ', '_', $recipe['code']);
 		}
 		return $recipes;
 	}
@@ -44,5 +45,16 @@ class Production extends Application {
 	public function getSupplyCount($code) {
 		$supplyCount = $this->suppliesModel->singleSupply($code)['quantityOnHand'];
 		return $supplyCount;
+	}
+
+	public function create($code) {
+		$normalCode = str_replace('_', ' ', $code);
+		$stockCount = $this->stockModel->singleStock($normalCode)['quantityOnHand'];
+		$this->phpAlert("Created 1 " . $normalCode . ". There are now " . ($stockCount + 1) . " in stock.");
+		redirect('/production', 'refresh');
+	}
+
+	public function phpAlert($msg) {
+	    echo '<script type="text/javascript">alert("' . $msg . '")</script>';
 	}
 }

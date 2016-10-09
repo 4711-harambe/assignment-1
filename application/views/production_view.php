@@ -25,7 +25,7 @@
 
 			$can_produce = ($recipe['can_produce'] ? "Yes" : "No");
 			echo "<td>$can_produce</td>";
-			echo "<td><button type='button' class='btn btn-primary'>" . $recipe['prod_link'] . "</button></td>";
+			echo "<td><a type='button' class='btn btn-primary' href='/production/create/" . $recipe['prod_link'] . "'>Create</a></td>";
 		 ?>
 
 		</tr>
