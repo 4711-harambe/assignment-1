@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
-$route['receiving/details_view/(:num)'] = 'receiving/showDetails/$id';
+$route['receiving/details_view/(:num)'] = 'receiving/showDetails/$1';
 $route['sales/item_view/([a-zA-Z_]+)'] = 'sales/showDetails/$1';
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
