@@ -50,4 +50,18 @@ class StockModel extends CI_Model {
             
             return null;
         }
+        
+        // Add a stock item to the data.
+        public function addStock($stock) {
+            array_push($this->data, $stock);
+        }
+        
+        // Delete a stock item from the data.
+        public function deleteStock($code) {
+            foreach ($this->data as $stock) {
+                if ($stock['code'] == $code) {
+                    unset($this->data[$code]);
+                }
+            }
+        }
 }

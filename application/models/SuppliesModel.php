@@ -150,4 +150,18 @@ class SuppliesModel extends CI_Model {
 
         return null;
     }
+    
+        // Add a supply item to the data.
+        public function addSupply($supply) {
+            array_push($this->data, $supply);
+        }
+        
+        // Delete a supply item from the data.
+        public function deleteSupply($code) {
+            foreach ($this->data as $supply) {
+                if ($supply['code'] == $code) {
+                    unset($this->data[$code]);
+                }
+            }
+        }
 }
