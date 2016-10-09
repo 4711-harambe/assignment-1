@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 $route['receiving/details_view/(:num)'] = 'receiving/showDetails/$id';
-$route['sales/item_view/([a-zA-Z]+)'] = 'sales/showDetails/Breakfast';
+$route['sales/item_view/([a-zA-Z]+)'] = 'sales/showDetails/$1';
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
