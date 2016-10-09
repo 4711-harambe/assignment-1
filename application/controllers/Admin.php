@@ -20,8 +20,8 @@ class Admin extends Application {
         $this->data['stock'] = $stock;
         $this->data['supplies'] = $supplies;
 
-        $this->data['pagetitle'] = "Production Page";
-        $this->data['pagebody'] = 'production_view';
+        $this->data['pagetitle'] = "Administrative Page";
+        $this->data['pagebody'] = 'admin_view';
 
         $this->render();
     }
@@ -64,7 +64,7 @@ class Admin extends Application {
         }
         $this->data['stock'] = $stockList;
 
-        return $stockLis[];
+        return $stockList;
     }
 
     // Get the supplies data for the view.
@@ -83,7 +83,7 @@ class Admin extends Application {
                 'quantityOnHand' => $supply['quantityOnHand']);
         }
 
-        return $supplyList[];
+        return $supplyList;
     }
 
     // Add a recipe to the data model.
