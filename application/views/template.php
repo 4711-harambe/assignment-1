@@ -30,8 +30,6 @@
 		{header}
 
 
-
-
         <!-- Loads the page content -->
         <div class="container">
 					<div <div class="jumbotron">
