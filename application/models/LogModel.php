@@ -1,6 +1,6 @@
 <?php
 
-class TransactionLogs extends CI_Model {
+class LogModel extends CI_Model {
         
         // Log information.
 	var $data = array(
