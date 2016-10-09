@@ -15,7 +15,7 @@
 	</head>
 	<body>
 
-		<h1>COMP 4711 - Assignement 1</h1>
+		<h1>COMP 4711 - Assignment 1</h1>
         <!-- Loads the navbar -->
         <div class="navbar">
                {menubar}
