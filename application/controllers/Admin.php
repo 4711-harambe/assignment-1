@@ -42,7 +42,7 @@ class Admin extends Application {
         }
         return $recipes;
     }
-    
+
     public function getSupplyCount($code) {
 		$supplyCount = $this->suppliesModel->singleSupply($code)['quantityOnHand'];
 		return $supplyCount;
