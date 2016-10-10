@@ -33,13 +33,8 @@
         <!-- Loads the page content -->
         <div class="container">
 					<div <div class="jumbotron">
-					<!-- Header image -->
-					<div class="page-header">
-					<h1>Munmer Difflin</h1>
-					<h1><small>Peoples persons portions people</small></h2>
-				</div>
           {content}
-				</div>
+					</div>
         </div>
 
 	 		{footer}
