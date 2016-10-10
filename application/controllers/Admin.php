@@ -111,22 +111,22 @@ class Admin extends Application {
     }
 
     // Edit a recipe data model item.
-    public function editRecipe($recipe) {
-        $normalCode = str_replace('_', ' ', $recipe['code']);
+    public function editRecipe($recipeCode) {
+        $normalCode = str_replace('_', ' ', $recipeCode);
         $this->phpAlert("Recipe: " . $normalCode . " has been updated.");
         redirect('/admin', 'refresh');
     }
 
     // Edit a stock data model item.
-    public function editStock($stock) {
-        $normalCode = str_replace('_', ' ', $stock['code']);
+    public function editStock($stockCode) {
+        $normalCode = str_replace('_', ' ', $stockCode);
         $this->phpAlert("Stock item: " . $normalCode . " has been updated.");
         redirect('/admin', 'refresh');
     }
 
     // Edit a supply data model item.
-    public function editSupply($supply) {
-        $normalCode = str_replace('_', ' ', $supply['code']);
+    public function editSupply($supplyCode) {
+        $normalCode = str_replace('_', ' ', $supplyCode);
         $this->phpAlert("Supply item: " . $normalCode . " has been updated.");
         redirect('/admin', 'refresh');
     }
