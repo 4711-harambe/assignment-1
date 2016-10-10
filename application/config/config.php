@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // Loads navbar content; add or remove items here to change the navbar
 $config['menu_choices'] = array(
     'menudata' => array(
-        array('name' => 'Home', 'link' => '/home'),
+        array('name' => 'Home', 'link' => '/'),
         array('name' => 'Production', 'link' => '/production'),
         array('name' => 'Sales', 'link' => '/sales'),
         array('name' => 'Receiving', 'link' => '/receiving'),

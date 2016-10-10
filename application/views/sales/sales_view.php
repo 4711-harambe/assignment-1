@@ -12,14 +12,14 @@
             {stock}
             <tr>
                 <td>
-                    <a href="sales/item_view/{code}">{code}</a>
+                    <a href="sales/item_view/{link}">{code}</a>
                 </td>
                 <td>{description}</td>
                 <td>${sellingPrice}</td>
                 <td>{quantityOnHand}</td>
-                <td><input class="btn btn-primary" type="submit" value="Buy"></td>
+                <td><a type='button' class='btn btn-primary' href='/sales/buy/{link}'>Buy</a></td>
             </tr>
             {/stock}
         </form>
     </table>
-</div>    
+</div>

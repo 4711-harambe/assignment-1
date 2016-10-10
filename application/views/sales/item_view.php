@@ -8,14 +8,18 @@
                 <td>{description}</td>
             </tr>
             <tr>
-                <th>Ingredients</th>
-                <td>{ingredient}</td>
-                <th>Amount</th>
-                <td>{amount}</td>
+                <th>Ingredients (Amount needed)</th>
+                <td>
+                    <ul>
+                        <?php foreach ($ingredients as $ingredient) {
+                        echo '<li>' . $ingredient['ingredient'] . ' (' . $ingredient["amount"] . ')</li>';
+                        } ?>
+                    </ul>
+                </td>
             </tr>
             <tr>
                 <th>Price</th>
-                <td>{sellingPrice}</td>
+                <td>${sellingPrice}</td>
             </tr>
             <tr>
                 <th>Quantity In Stock</th>
@@ -23,7 +27,7 @@
             </tr>
             <tr>
                 <td></td>
-                <td><input class="btn btn-primary" type="submit" value="Buy">
+                <td><a type='button' class='btn btn-primary' href='/sales/buy/{link}'>Buy</a></td>
                 <td>
             </tr>
         </form>

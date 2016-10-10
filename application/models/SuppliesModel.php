@@ -1,7 +1,7 @@
 <?php
 
 class SuppliesModel extends CI_Model {
-        
+
         var $data = array(
             array('id' => 1,
                 'code' => 'pizza slice',
@@ -9,7 +9,7 @@ class SuppliesModel extends CI_Model {
                 'receivingUnit' => 'slice',
                 'receivingCost' => 2,
                 'stockingUnit' => 'slice',
-                'quantityOnHand' => 16),
+                'quantityOnHand' => 0),
             array('id' => 2,
                 'code' => 'kraft dinner',
                 'description' => 'Macaroni and cheese.',
@@ -65,7 +65,7 @@ class SuppliesModel extends CI_Model {
                 'receivingUnit' => 'set',
                 'receivingCost' => 50,
                 'stockingUnit' => 'set',
-                'quantityOnHand' => 10),
+                'quantityOnHand' => 0),
             array('id' => 10,
                 'code' => 'cigars',
                 'description' => 'Premium Cuban cigars.',
@@ -115,8 +115,8 @@ class SuppliesModel extends CI_Model {
                 'receivingCost' => 4,
                 'stockingUnit' => 'bag',
                 'quantityOnHand' => 21));
-            
-        
+
+
 	// Constructor
 	public function __construct()
 	{
@@ -128,7 +128,7 @@ class SuppliesModel extends CI_Model {
 	{
 		return $this->data;
 	}
-        
+
         // Retrieve a single recipe.
         public function singleSupply($supplyCode) {
             foreach ($this->data as $supply) {
@@ -136,7 +136,7 @@ class SuppliesModel extends CI_Model {
                     return $supply;
                 }
             }
-            
+
             return null;
         }
 
@@ -150,4 +150,18 @@ class SuppliesModel extends CI_Model {
 
         return null;
     }
+    
+        // Add a supply item to the data.
+        public function addSupply($supply) {
+            array_push($this->data, $supply);
+        }
+        
+        // Delete a supply item from the data.
+        public function deleteSupply($code) {
+            foreach ($this->data as $supply) {
+                if ($supply['code'] == $code) {
+                    unset($this->data[$code]);
+                }
+            }
+        }
 }

@@ -1,6 +1,6 @@
 <?php
 
-class TransactionLogs extends CI_Model {
+class LogModel extends CI_Model {
         
         // Log information.
 	var $data = array(
@@ -97,6 +97,18 @@ class TransactionLogs extends CI_Model {
                     if ($ingredients['code'] == $ingredient) {
                         $consumedvalue += $ingredients['value'];
                     }
+                }
+            }
+            
+            return $consumedvalue;
+        }
+        
+        public function RetrieveCostofConsumed(){
+            $consumedvalue = 0;
+            
+            foreach($this->data as $log){
+                foreach ($log['ingredientsConsumed'] as $consumedLog){
+                    $consumedvalue += $consumedLog['value'];
                 }
             }
             
