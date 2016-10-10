@@ -5,6 +5,8 @@ class Sales extends Application {
 
 	public function __construct() {
 		parent::__construct();
+                $this->load->model('stockModel');
+                $this->load->model('recipesModel');
 	}
 	/**
 	 * Index Page for the Production controller.
@@ -23,7 +25,7 @@ class Sales extends Application {
                         'code' => $item['code'],
                         'description' => $item['description'],
                         'sellingPrice' => $item['sellingPrice'],
-						'link' => str_replace(' ', '_', $item['code']),
+			'link' => str_replace(' ', '_', $item['code']),
                         'quantityOnHand' => $item['quantityOnHand']);
                 }
                 $this->data['stock'] = $stockList;
@@ -33,13 +35,14 @@ class Sales extends Application {
 
         public function showDetails($code)
         {
-			$normalCode = str_replace('_', ' ', $code);
+            $normalCode = str_replace('_', ' ', $code);
             $this->data['pagebody'] = 'sales/item_view';
             $stock = $this->stockmodel->singleStock($normalCode);
             $recipe = $this->recipesmodel->singleRecipe($normalCode);
             $this->data['pagetitle'] = $stock['code'];
 
             $this->data['code'] = $stock['code'];
+            $this->data['link'] = str_replace(' ', '_', $stock['code']);
             $this->data['description'] = $stock['description'];
             $this->data['sellingPrice'] = $stock['sellingPrice'];
             $this->data['quantityOnHand'] = $stock['quantityOnHand'];
@@ -57,5 +60,17 @@ class Sales extends Application {
             $this->render();
 
         }
+        
+        public function buy($code) {
+		$normalCode = str_replace('_', ' ', $code);
+		$stockCount = $this->stockModel->singleStock($normalCode)['quantityOnHand'];
+                $stockPrice = $this->stockModel->singleStock($normalCode)['sellingPrice'];
+		$this->phpAlert("Bought a " . $normalCode . " for $" . $stockPrice . ". There are now " . ($stockCount - 1) . " in stock. Enjoy!");
+		redirect('/sales', 'refresh');
+	}
+        
+        public function phpAlert($msg) {
+	    echo '<script type="text/javascript">alert("' . $msg . '")</script>';
+	}
 
 }
